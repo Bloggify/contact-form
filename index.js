@@ -1,4 +1,7 @@
-// Mandrill configuratiou
+// Dependencies
+var Mandrill = require("mandrill-api/mandrill");
+
+// Mandrill configuration
 var MandrillClient = new Mandrill.Mandrill(Config.mandrillConfig.key);
 
 // Attach the new form
