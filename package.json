@@ -1,0 +1,28 @@
+{
+  "name": "bloggify-contact-form",
+  "version": "0.0.0",
+  "description": "The official contact form plugin for Bloggify",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "mandrill-api"  : "1.0.39"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/BloggifyPlugins/contact-form.git"
+  },
+  "keywords": [
+    "bloggify",
+    "contact",
+    "form",
+    "blog"
+  ],
+  "author": "Ionică Bizău <bizauionica@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/BloggifyPlugins/contact-form/issues"
+  },
+  "homepage": "https://github.com/BloggifyPlugins/contact-form"
+}
