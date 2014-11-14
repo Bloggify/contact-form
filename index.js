@@ -1,64 +1,52 @@
 // Dependencies
-//var Mandrill = require("mandrill-api/mandrill");
+var Jade = require("jade")
+  , Send = require("./lib/send")
+  , ValidateError = require("./lib/validate_error")
+  ;
 
-// Mandrill configuration
-//var MandrillClient = new Mandrill.Mandrill(Config.mandrillConfig.key);
-//
-//// Attach the new form
-//Bloggify.form.contact = {
-//    handler: function (req, res, formData) {
-//
-//        // TODO Antispam
-//        MandrillClient.messages.send({
-//            message: {
-//                from_email: formData.email
-//              , from_name: formData.name
-//              , to: [
-//                    {
-//                        email: Config.contact.email
-//                      , name: Config.contact.name
-//                    }
-//                ]
-//              , subject: formData.subject
-//              , text: formData.message
-//            }
-//        }, function(result) {
-//            Debug.log(result, "info");
-//            if (result.reject_reason) {
-//                return Statique.sendRes(
-//                    res, 400, "text",
-//                    JSON.stringify({ message: "Sorry, an error ocured. "
-//                      + "Try again. If the "
-//                      + "problem persists, open an issue. We log such "
-//                      + "errors, so hopefully we will fix them."
-//                    })
-//                );
-//            }
-//
-//            Statique.sendRes(
-//                res, 200, "text",
-//                JSON.stringify({ message: "Thank you for getting in touch. "
-//                   + "I will try to reply you as soon as posible."
-//                })
-//            );
-//        }, function (error) {
-//            Debug.log(error, "error");
-//            return Statique.sendRes(
-//                res, 400, "text",
-//                JSON.stringify({ message: "Sorry, an error ocured. "
-//                  + "Try again. If the "
-//                  + "problem persists, open an issue. We log such "
-//                  + "errors, so hopefully we will fix them."
-//                })
-//            );
-//        });
-//    }
-//  , validate: {
-//        email: "email"
-//      , name: "string,non-empty"
-//      , subject: "string,non-empty"
-//      , message: "string,non-empty"
-//    }
-//};
+// Init function
+module.exports = function (contactForm) {
 
-console.log("Hello from contact form!");
+    // Prepare processors, compile jade file and set Mandrill config
+    var processor = Bloggify.processors.sitePage[contactForm.config.contact_page] = Bloggify.processors.sitePage[contactForm.config.contact_page] || []
+      , contactView = Jade.compileFile(__dirname + "/views/contact.jade")
+      ;
+
+    // Add the new processor
+    processor.push(function (lien, data, content, callback) {
+        if (lien.method === "post") {
+            var err = ValidateError(lien);
+            if (err) {
+                var result = {
+                    error: err.error
+                  , fields: err.fields
+                  , data: lien.data
+                };
+                callback(content.replace("{contact_form}", contactView({
+                    contactForm: contactForm
+                  , result: result
+                })));
+                return;
+            }
+
+            Send(contactForm.config, {
+                from: {
+                    email: lien.data.email
+                  , name: lien.data.name
+                }
+              , subject: lien.data.subject
+              , message: lien.data.message
+            }, function (err, result) {
+                content = content.replace("{contact_form}", contactView({
+                    contactForm: contactForm
+                  , result: err || result
+                }));
+                callback(content);
+            });
+        } else {
+            callback(content.replace("{contact_form}", contactView({
+                contactForm: contactForm
+            })));
+        }
+    });
+};
