@@ -1,0 +1,24 @@
+p If you have any questions, just send me a message. If you just want to say "Hi", that's cool too.
+
+form.contact-form(action=contactForm.config.contact_page, method="POST")
+  - if (result && result.success) {
+    div.result !{result.success}
+  - }
+  div
+    label
+      span Name
+      input(name="name", type="text", tabindex="1" autofocus="")
+  div
+    label
+      span Email
+      input(name="email", type="email", tabindex="2")
+  div
+    label
+      span Subject
+      input(name="subject", type="text", tabindex="3")
+  div
+    label
+      span Message
+      textarea(name="message", tabindex="4")
+  div
+    input(type="submit", value="Send")
