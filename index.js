@@ -7,14 +7,18 @@ var Jade = require("jade")
 // Init function
 module.exports = function (contactForm) {
 
-    // Prepare processors, compile jade file and set Mandrill config
+    // Prepare processors, compile jade file
     var processor = Bloggify.processors.sitePage[contactForm.config.contact_page] = Bloggify.processors.sitePage[contactForm.config.contact_page] || []
       , contactView = Jade.compileFile(__dirname + "/views/contact.jade")
       ;
 
     // Add the new processor
     processor.push(function (lien, data, content, callback) {
+
+        // Post requests
         if (lien.method === "post") {
+
+            // Validate data
             var err = ValidateError(lien);
             if (err) {
                 var result = {
@@ -29,6 +33,7 @@ module.exports = function (contactForm) {
                 return;
             }
 
+            // Send email message
             Send(contactForm.config, {
                 from: {
                     email: lien.data.email
@@ -44,6 +49,7 @@ module.exports = function (contactForm) {
                 callback(content);
             });
         } else {
+            // Handle GET or other method requests
             callback(content.replace("{contact_form}", contactView({
                 contactForm: contactForm
             })));
