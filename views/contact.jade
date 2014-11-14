@@ -1,24 +1,45 @@
-p If you have any questions, just send me a message. If you just want to say "Hi", that's cool too.
-
+- result = result || {};
+- result.fields = result.fields || [];
+- result.data = result.data || {};
 form.contact-form(action=contactForm.config.contact_page, method="POST")
   - if (result && result.success) {
-    div.result !{result.success}
-  - }
+  div.message-box.success !{result.success}
+  - } else if (result.error && result.error !== "validate_error") {
+  div.message-box.error !{result.error}
+  - } else {
   div
     label
       span Name
-      input(name="name", type="text", tabindex="1" autofocus="")
+      - if (result.fields.indexOf("name") === -1) {
+      input(name="name", type="text", tabindex="1", value=result.data.name)
+      - } else {
+      input.error(name="name", type="text", tabindex="1", autofocus="", value=result.data.name)
+      - }
   div
     label
       span Email
-      input(name="email", type="email", tabindex="2")
+      - if (result.fields.indexOf("email") === -1) {
+      input(name="email", type="email", tabindex="2", value=result.data.email)
+      - } else {
+      input.error(name="email", type="email", tabindex="2", autofocus="", value=result.data.email)
+      - }
   div
     label
       span Subject
-      input(name="subject", type="text", tabindex="3")
+      - if (result.fields.indexOf("subject") === -1) {
+      input(name="subject", type="text", tabindex="3", value=result.data.subject)
+      - } else {
+      input.error(name="subject", type="text", tabindex="3", autofocus="", value=result.data.subject)
+      - }
   div
     label
       span Message
-      textarea(name="message", tabindex="4")
+
+      - if (result.fields.indexOf("message") === -1) {
+      textarea(name="message", tabindex="4") #{result.data.message}
+      - } else {
+      textarea.error(name="message", tabindex="4", autofocus="") #{result.data.message}
+      - }
   div
     input(type="submit", value="Send")
+  - }
