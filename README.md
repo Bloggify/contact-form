@@ -25,6 +25,26 @@ The official contact form plugin for Bloggify
 
 > ![](http://i.imgur.com/v566p7k.png)
 
+## Documentation
+
+### `send(config, data, callback)`
+Sends the email to the configured email address.
+
+#### Params
+- **Object** `config`: The plugin configuration.
+- **Object** `data`: The form data.
+- **Function** `callback`: The callback function.
+
+### `validateError(lien)`
+Validates form data.
+
+#### Params
+- **Object** `lien`: The lien object.
+
+#### Return
+- **Object|null** A validate_error object (containing `error` and `fields` properties) or `null` if the form data is valid.
+
+
 ## License
 
 See the [LICENSE](./LICENSE) file.
