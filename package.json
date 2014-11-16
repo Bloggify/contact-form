@@ -1,13 +1,13 @@
 {
   "name": "bloggify-contact-form",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "The official contact form plugin for Bloggify",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
-    "mandrill-api": "1.0.39"
+    "mandrill-api": "1.0.41"
   },
   "repository": {
     "type": "git",
