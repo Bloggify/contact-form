@@ -1,7 +1,7 @@
 - result = result || {};
 - result.fields = result.fields || [];
 - result.data = result.data || {};
-form.contact-form(action=contactForm.config.contact_page, method="POST")
+form.contact-form(action=contactForm.contact_page, method="POST")
   - if (result && result.success) {
   div.message-box.success !{result.success}
   - } else if (result.error && result.error !== "validate_error") {
