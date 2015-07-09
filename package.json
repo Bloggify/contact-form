@@ -2,7 +2,7 @@
   "name": "bloggify-contact-form",
   "version": "2.0.0",
   "description": "The official contact form plugin for Bloggify",
-  "main": "index.js",
+  "main": "lib/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
