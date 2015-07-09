@@ -2,7 +2,7 @@
   "name": "bloggify-contact-form",
   "version": "2.0.0",
   "description": "The official contact form plugin for Bloggify",
-  "main": "index.js",
+  "main": "lib/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -21,9 +21,12 @@
     "blog"
   ],
   "author": "Ionică Bizău <bizauionica@gmail.com>",
-  "license": "MIT",
+  "license": "KINDLY",
   "bugs": {
     "url": "https://github.com/BloggifyPlugins/contact-form/issues"
   },
-  "homepage": "https://github.com/BloggifyPlugins/contact-form"
+  "homepage": "https://github.com/BloggifyPlugins/contact-form",
+  "blah": {
+    "ex_img": "http://i.imgur.com/v566p7k.png"
+  }
 }
