@@ -7,8 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
-    "mandrill-api": "1.0.41",
-    "jade": "1.11.0"
+    "jade": "1.11.0",
+    "sendgrid": "^2.0.0"
   },
   "repository": {
     "type": "git",
@@ -33,7 +33,7 @@
       "source": "git@github.com:BloggifyPlugins/contact-form.git",
       "version": "2.0.0",
       "config": {
-        "mandrill_key": "6hv.......grag",
+        "api_key": "6hv.......grag",
         "contact_page": "/contact",
         "contact": {
           "email": "whoyouare@example.com",
