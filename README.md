@@ -13,11 +13,31 @@
 <!-- * * * Thanks! * * *                                                    -->
 <!---------------------------------------------------------------------------->
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # bloggify-contact-form [![Donate now][donate-now]][paypal-donations]
 
 The official contact form plugin for Bloggify
 
+
 ![bloggify-contact-form](http://i.imgur.com/v566p7k.png)
+
 
 ## Configuration
 
@@ -37,14 +57,26 @@ The official contact form plugin for Bloggify
 }
 ```
 
+
 ## Documentation
+
+
+
+
+### Jade
+
+
+
+
 
 ## How to contribute
 Have an idea? Found a bug? See [how to contribute][contributing].
 
+
 ## License
 [KINDLY][license] © [Ionică Bizău][website]–The [LICENSE](/LICENSE) file contains
 a copy of the license.
+
 
 [license]: http://ionicabizau.github.io/kindly-license/?author=Ionic%C4%83%20Biz%C4%83u%20%3Cbizauionica@gmail.com%3E&year=2015
 [contributing]: /CONTRIBUTING.md
