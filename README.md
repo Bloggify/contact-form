@@ -63,7 +63,7 @@ The official contact form plugin for Bloggify
 
 
 
-### Jade
+### Pug
 
 
 
