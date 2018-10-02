@@ -1,12 +1,13 @@
 - result = result || {};
 - result.fields = result.fields || [];
 - result.data = result.data || {};
-form.contact-form(action=contactForm.contact_page, method="POST")
+form.contact-form(action=contactForm.contact_page, method="POST", enctype="application/x-www-form-urlencoded")
   - if (result && result.success) {
   div.message-box.success !{result.success}
   - } else if (result.error && result.error !== "validate_error") {
   div.message-box.error !{result.error}
   - } else {
+  | !{ctx.csrfInput}
   div
     label
       span Name
