@@ -24,7 +24,7 @@ form.contact-form(action=contactForm.contact_page, method="POST", enctype="appli
       - } else {
       input.error(name="email", type="email", tabindex="2", autofocus="", value=result.data.email)
       - }
-  input(name="website", type="text", style="display:hidden")
+  input(name="website", type="text", style="display:none")
   div
     label
       span Subject
