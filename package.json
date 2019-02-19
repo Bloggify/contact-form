@@ -20,7 +20,7 @@
     "form",
     "blog"
   ],
-  "author": "Ionică Bizău <bizauionica@gmail.com>",
+  "author": "Bloggify <support@bloggify.org> (https://bloggify.org)",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/Bloggify/contact-form/issues"
@@ -29,5 +29,19 @@
   "blah": {
     "ex_img": "http://i.imgur.com/v566p7k.png"
   },
-  "devDependencies": {}
+  "devDependencies": {},
+  "files": [
+    "bin/",
+    "app/",
+    "lib/",
+    "dist/",
+    "src/",
+    "scripts/",
+    "resources/",
+    "menu/",
+    "cli.js",
+    "index.js",
+    "bloggify.js",
+    "bloggify.json"
+  ]
 }
