@@ -21,26 +21,13 @@
     "blog"
   ],
   "author": "Ionică Bizău <bizauionica@gmail.com>",
-  "license": "KINDLY",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/Bloggify/contact-form/issues"
   },
   "homepage": "https://github.com/Bloggify/contact-form",
   "blah": {
-    "ex_img": "http://i.imgur.com/v566p7k.png",
-    "configuration": {
-      "name": "contact-form",
-      "source": "git@github.com:BloggifyPlugins/contact-form.git",
-      "version": "2.0.0",
-      "config": {
-        "api_key": "6hv.......grag",
-        "contact_page": "/contact",
-        "contact": {
-          "email": "whoyouare@example.com",
-          "name": "Who You Are"
-        }
-      }
-    }
+    "ex_img": "http://i.imgur.com/v566p7k.png"
   },
   "devDependencies": {}
 }
