@@ -1,6 +1,6 @@
 {
   "name": "bloggify-contact-form",
-  "version": "4.1.0",
+  "version": "4.1.1",
   "description": "The official contact form plugin for Bloggify",
   "main": "lib/index.js",
   "scripts": {
