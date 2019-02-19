@@ -12,7 +12,7 @@ form.contact-form(action=contactForm.contact_page, method="POST", enctype="appli
     label
       span Name
       - if (result.fields.indexOf("name") === -1) {
-      input(name="name", type="text", tabindex="1", value=result.data.name)
+      input(name="name", type="text", tabindex="1", value=result.data.name, autofocus="")
       - } else {
       input.error(name="name", type="text", tabindex="1", autofocus="", value=result.data.name)
       - }
